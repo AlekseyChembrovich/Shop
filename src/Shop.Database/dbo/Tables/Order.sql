@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[Order]
+(
+	[Id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY, 
+    [Number] INT NULL, 
+    [Date] DATE NULL, 
+    [DriverId] INT NULL, 
+    [ProviderId] INT NULL, 
+    [ClientId] INT NULL,
+    CONSTRAINT FK_Driver FOREIGN KEY ([DriverId]) REFERENCES [dbo].[Driver] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FK_Provider FOREIGN KEY ([ProviderId]) REFERENCES [dbo].[Provider] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FK_Client FOREIGN KEY ([ClientId]) REFERENCES [dbo].[Client] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE
+)
